@@ -67,8 +67,8 @@ imagettftext($im, 16, 0, 10, 104, $black, $font, $weather);//ip
 imagettftext($im, 15, 0, 10, 140, $black, $font, '您的IP是:' . $ip . '  :(' . $counter . ')');
 imagettftext($im, 15, 0, 10, 175, $black, $font, '您使用的是' . $os . '操作系统');
 imagettftext($im, 16, 0, 10, 205, $red, $font, $get);
-imagettftext($im, 16, 0, 10, 235, $black, $font, '禁止翻墙');
-imagettftext($im, 16, 0, 10, 265, $black, $font, '违令者斩！');
+imagettftext($im, 16, 0, 10, 205, $black, $font, '禁止翻墙');
+imagettftext($im, 16, 0, 10, 235, $black, $font, '违令者斩！');
 // ImageGif($im);
 imagejpeg($im, null, 30);
 ImageDestroy($im);
