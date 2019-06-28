@@ -5,7 +5,7 @@
 header("Content-type: image/JPEG");
 $r = rand(0, 10);
 //$im = imagecreatefromjpeg("xhxh" . $r . ".jpg");
-$im = imagecreatefrompng("auto.png");
+$im = imagecreatefrompng("Trump.png");
 
 $ip = $_SERVER["HTTP_X_FORWARDED_FOR"];// $_SERVER["REMOTE_ADDR"];
 $weekarray = array("日", "一", "二", "三", "四", "五", "六"); //先定义一个数组
