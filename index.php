@@ -5,7 +5,7 @@
 header("Content-type: image/JPEG");
 $r = rand(0, 10);
 //$im = imagecreatefromjpeg("xhxh" . $r . ".jpg");
-$im = imagecreatefrompng("Trump.png");
+$im = imagecreatefrompng("gd.png");
 
 $ip = $_SERVER["HTTP_X_FORWARDED_FOR"];// $_SERVER["REMOTE_ADDR"];
 $weekarray = array("日", "一", "二", "三", "四", "五", "六"); //先定义一个数组
@@ -57,19 +57,29 @@ if (strlen($weather) > 2) {
 $black = ImageColorAllocate($im, 0, 0, 0);//定义黑色的值
 $red = ImageColorAllocate($im, 255, 0, 0);//红色
 $font = 'msyh.ttf';//加载字体
-$address = $country . '-' . $region . '-' . $city;
-if (strlen($address) == 2) {
-    $address = ' 太阳系 ';
+
+if($country == "中国"){
+    $address = "中国公民";
+}else{
+    $address = $country.'友仔';
 }
+//$address = $country . '-' . $region . '-' . $city;
+//if (strlen($address) == 2) {
+//    $address = ' 太阳系 ';
+//}
 //输出
-imagettftext($im, 16, 0, 10, 40, $black, $font, '欢迎您,来自' . $address . '的朋友');
+imagettftext($im, 16, 0, 10, 40, $black, $font, '欢迎您,' . $address);
+//imagettftext($im, 16, 0, 10, 72, $black, $font, '今天是' . date('Y年n月j日') . " 星期" . $weekarray[date("w")]);//当前时间添加到图片
+//imagettftext($im, 16, 0, 10, 104, $black, $font, $weather);//ip
+//imagettftext($im, 15, 0, 10, 140, $black, $font, '您的IP是:' . $ip . '  :(' . $counter . ')');
+//imagettftext($im, 15, 0, 10, 175, $black, $font, '您使用的是' . $os . '操作系统');
+//imagettftext($im, 16, 0, 10, 205, $red, $font, $get);
+
 imagettftext($im, 16, 0, 10, 72, $black, $font, '今天是' . date('Y年n月j日') . " 星期" . $weekarray[date("w")]);//当前时间添加到图片
 imagettftext($im, 16, 0, 10, 104, $black, $font, $weather);//ip
 imagettftext($im, 15, 0, 10, 140, $black, $font, '您的IP是:' . $ip . '  :(' . $counter . ')');
 imagettftext($im, 15, 0, 10, 175, $black, $font, '您使用的是' . $os . '操作系统');
-imagettftext($im, 16, 0, 10, 205, $red, $font, $get);
 imagettftext($im, 16, 0, 10, 205, $red, $font, '禁止翻墙');
-imagettftext($im, 16, 0, 10, 235, $red, $font, '违令者斩！');
 // ImageGif($im);
 imagejpeg($im, null, 30);
 ImageDestroy($im);
